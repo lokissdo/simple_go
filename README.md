@@ -12,7 +12,7 @@ Make sure MongoDB is running locally, and you can configure the database connect
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/lokissdo/my_app.git
+   git clone https://github.com/lokissdo/simple_go.git
    cd my_app
 
 2. Run the server:
