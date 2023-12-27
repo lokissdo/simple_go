@@ -42,6 +42,16 @@ func (r *Router) SetupRoutes() {
 	r.mainRouter.HandleFunc("/", IndexHandler)
 	// Register routes from different router files
 	RegisterProductRoutes(r.mainRouter, productController)
+
+	// Only for deploy my simple app
+	r.mainRouter.Use(func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+			next.ServeHTTP(w, r)
+		})
+	})
 }
 
 // GetHandler returns the main router as an ----http.Handler----  *mux.Router

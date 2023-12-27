@@ -27,7 +27,9 @@ func NewDBConnector() *DBConnector {
 
 // Connect establishes a connection to MongoDB and sets the client field
 func (db *DBConnector) Connect() error {
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	// clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	clientOptions := options.Client().ApplyURI("mongodb+srv://dokhaihung:dokhaihung@cluster0.wzjck.mongodb.net/?retryWrites=true&w=majority")
+	
 	client, err := mongo.Connect(db.ctx, clientOptions)
 	if err != nil {
 		log.Fatal(err)
