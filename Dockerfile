@@ -14,8 +14,10 @@ RUN go mod download
 # Build the Go app
 
 # Expose port 8080 for incoming traffic
-EXPOSE 8080
 
 RUN go build -o main
+
+EXPOSE 8080
+
 
 CMD ["/app/main"]
